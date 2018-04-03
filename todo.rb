@@ -1,6 +1,6 @@
 require_relative "task"
 
-class Todo_list 
+class Todo_list
 @@list = []
 	# def initialize
 
@@ -12,13 +12,23 @@ class Todo_list
 		return @@list.last 
 	end 
 
-	def can_modify_list(description)
+	def self.can_modify_list(description)
+		obj = 0 
 		@@list.each do |task|
+
 			if task.description_reader == description
-				return true 
-			else return false 
+				#return true 
+				obj = task #to get matching task out of the block 
 			end 
+				
 		end
+		if obj != 0 
+			return obj 
+		else 
+			return false
+		end 
+
+
 	end 
 
 	def self.display
@@ -26,24 +36,32 @@ class Todo_list
 		return @@list 
 	end 
 
-
 end 
 
 
+# a = Todo_list.new
 
-task = Task.new("something", 1800)
-task1 = Task.new("stuff", 1850)
-task2 = Task.new("things", 180)
+# a.add_task("something", 1800)
 
-#puts task.inspect
 
-task.change_due_date(1500)
-#puts task.inspect
+# # task = Task.new("something", 1800)
+# # task1 = Task.new("stuff", 1850)
+# # task2 = Task.new("things", 180)
 
-todo = Todo_list.new
+# a = Todo_list.can_modify_list("something")
 
-todo.add_task(task)
-todo.add_task(task1)
-todo.add_task(task2)
+# a.modify_task("hi")
 
- todo.display
+# puts a.inspect
+# #puts task.inspect
+
+# task.change_due_date(1500)
+# #puts task.inspect
+
+# todo = Todo_list.new
+
+# todo.add_task(task)
+# todo.add_task(task1)
+# todo.add_task(task2)
+
+#  todo.display

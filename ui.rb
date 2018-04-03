@@ -16,7 +16,7 @@ class Ui
     puts "[2] Modify an existing task"
     puts "[3] delete a task"
     puts "[4] display all tasks"
-    # puts "[5] Search by attribute"
+    puts "[5] modify the due date of a task"
     # puts "[6] Exit"
     # puts "enter a number"
 
@@ -28,7 +28,7 @@ class Ui
       when 2 then modify_existing_task
       when 3 then delete_task
       when 4 then display_all_tasks
-      when 5 then search_by_attribute
+      when 5 then change_due_date
       when 6 then raise "quit "
     end 
   end
@@ -48,6 +48,32 @@ class Ui
   	Todo_list.display
   end
 
+  def modify_existing_task 
+  	p "enter the description of the task you want to modify"
+  	description = gets.chomp 
+  	task = Todo_list.can_modify_list(description) #task can be false, or the matching instance of the task
+  		if task == false 
+  			puts "task not found"
+  		else 
+  			p "enter the new description"
+  			new_description = gets.chomp 
+  			task.modify_task(new_description) #task instance calls modify task in task class.
+
+  		end
+  end 
+
+  def change_due_date 
+  	p "enter the description of the task you want to modify"
+  	description = gets.chomp 
+  	task = Todo_list.can_modify_list(description) #task can be false, or the matching instance of the task
+  		if task == false 
+  			puts "task not found"
+  		else 
+  			p "enter the new due date"
+  			new_due_date = gets.chomp 
+  			task.modify_task_due_date(new_due_date)
+  		end
+  end 
 
 
 end 
