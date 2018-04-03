@@ -7,7 +7,7 @@ class Todo_list
 	# end 
 
 	def add_task(task, due_date)
-		task = Task.new(task, due_date) #to add task to-do list calls on the class Task
+		task = Task.new(task, due_date) #to add a task Todo_list calls on the class Task
 		@@list.push(task)
 		return @@list.last 
 	end 
@@ -32,7 +32,7 @@ class Todo_list
 	end 
 
 	def self.display
-		p @@list
+		
 		return @@list 
 	end 
 

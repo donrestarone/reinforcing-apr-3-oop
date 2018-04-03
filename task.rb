@@ -21,7 +21,7 @@ class Task
 		@due_date = due_date
 	end
 	def modify_task(new_description) 
-		self.change_description= new_description #task from ui file is the "self" object here
+		self.change_description= new_description #task variable from ui file is the "self" object here
 	end 
 
 	def modify_task_due_date(new_due_date)
@@ -31,14 +31,14 @@ class Task
 
 end 
 
-task = Task.new("something", 18500)
-# task.modify_task("this")
+# task = Task.new("something", 18500)
+# # task.modify_task("this")
 
-p task.inspect
-# puts task.inspect
+# p task.inspect
+# # puts task.inspect
 
-# task.change_due_date(1500)
-# puts task.inspect
+# # task.change_due_date(1500)
+# # puts task.inspect
 
 
 
