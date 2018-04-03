@@ -1,7 +1,7 @@
 require_relative "todo"
 require_relative "task"
 
-class ui
+class Ui
 
   def main_menu
     while true 
@@ -33,6 +33,24 @@ class ui
     end 
   end
 
-  
+  def add_task 
+  	mylist = Todo_list.new
+  	p "enter task"
+  	task = gets.chomp 
+  	p "enter due date"
+  	due_date = gets.chomp
+  	
+  	mylist.add_task(task, due_date)
+
+  end 
+
+  def display_all_tasks #make this more user friendly 
+  	Todo_list.display
+  end
+
+
 
 end 
+
+interface = Ui.new 
+interface.main_menu

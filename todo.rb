@@ -2,19 +2,26 @@ require_relative "task"
 
 class Todo_list 
 @@list = []
-	def initialize
+	# def initialize
 
-	end 
+	# end 
 
-	def task_maker(task,due_date)
-		task = Task.new(task, due_date)
-	end
-
-	def add_task(task)
+	def add_task(task, due_date)
+		task = Task.new(task, due_date) #to add task to-do list calls on the class Task
 		@@list.push(task)
+		return @@list.last 
 	end 
 
-	def display
+	def can_modify_list(description)
+		@@list.each do |task|
+			if task.description_reader == description
+				return true 
+			else return false 
+			end 
+		end
+	end 
+
+	def self.display
 		p @@list
 		return @@list 
 	end 
