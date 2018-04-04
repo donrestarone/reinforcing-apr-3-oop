@@ -2,7 +2,7 @@
 class Task 
  	def initialize(description, due_date)
 	@description = description
-	@due_date = due_date 
+	@due_date = due_date
 	end
 
 	def description_reader 
@@ -11,6 +11,10 @@ class Task
 
 	def due_date_reader 
 		return @due_date
+	end 
+
+	def due_time
+		when_due = Time.now + due_date_reader.to_i
 	end 
 
 	def change_description=(description) #equal operator is used on this reader to write the new description

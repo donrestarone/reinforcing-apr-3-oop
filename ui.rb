@@ -37,7 +37,7 @@ class Ui
   	mylist = Todo_list.new #my list is the instance variable of Todo_list 
   	p "enter task"
   	task = gets.chomp 
-  	p "enter due date"
+  	p "enter due date in hours"
   	due_date = gets.chomp
   	mylist.add_task(task, due_date)
 
@@ -47,7 +47,8 @@ class Ui
   	Todo_list.display.each do |task_instance|
 
   		puts "task: #{task_instance.description_reader}"
-  		puts "due date: #{task_instance.due_date_reader}"
+  		puts "seconds till due: #{task_instance.due_date_reader}"
+  		puts "due: #{task_instance.due_time}"
   	end 
   	
   end
